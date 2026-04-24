@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<Student> students = new ArrayList<>();
+
+        students.add(new Student("Ali", 3.5, 85));
+        students.add(new Student("Aruzhan", 3.9, 92));
+        students.add(new Student("Dias", 2.8, 70));
+        students.add(new Student("Dana", 3.7, 88));
+
+        System.out.println("Бастапқы тізім:");
+        printList(students);
+
+      
+        Collections.sort(students, new SortByGPA());
+        System.out.println("\nGPA бойынша сұрыптау:");
+        printList(students);
+
+        
+        Collections.sort(students, new SortByScore());
+        System.out.println("\nБалл бойынша сұрыптау:");
+        printList(students);
+
+        
+        Collections.sort(students, new SortByName());
+        System.out.println("\nАты бойынша сұрыптау:");
+        printList(students);
+    }
+
+    public static void printList(List<Student> students) {
+        for (Student s : students) {
+            System.out.println(s);
+        }
+    }
+}
